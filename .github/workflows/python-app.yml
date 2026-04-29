@@ -30,18 +30,18 @@ jobs:
     - name: Executar o pytest no projeto 
       run: |
         PYTHONPATH=. pytest tests/ -v --tb=short
-Imagem:
+  Imagem:
     - name: Construindo Imagem para o Docker
-    run-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Configurar o Docker na VM
-        uses: docker/build-push-action@v7.1.0
-        with: 
-          push: true
-          tags: |
-            isabellemorales/lab8_api_ta:latest
-            isabellemorales/lab8_api_ta:${{github.sha}}
+      run-on: ubuntu-latest
+      needs: build
+      steps:
+        - name: Configurar o Docker na VM
+          uses: docker/build-push-action@v7.1.0
+          with: 
+            push: true
+            tags: |
+              isabellemorales/lab8_api_ta:latest
+              isabellemorales/lab8_api_ta:${{github.sha}}
 
     
   
