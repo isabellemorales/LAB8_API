@@ -66,3 +66,19 @@ jobs:
           script:  |
             # teste de acesso
             echo "Acesso liberado"
+            
+            # fazer o pull da imagem dockerhub
+            sudo docker pull isabellemorales/lab8_api_ta:latest
+
+            # Parar o app atual remover o cantainer 
+            sudo docker stop lab8_api_ta 2>/dev/null || true 
+            sudo docker rm lab8_api_ta 2>/dev/null || true 
+
+            #Publicar novo container:
+            sudo docker run --name lab8_api_ta -d -p 80:8080 isabellemorales/lab8_api_ta:latest
+
+            # Verificar se publicou 
+            sleep 5 
+            curl -f http://localhost/health || exit 1 
+            echo "Deploy feito com sucesso"
+            
