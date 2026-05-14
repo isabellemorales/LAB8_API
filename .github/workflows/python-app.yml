@@ -51,7 +51,6 @@ jobs:
           tags: |
                isabellemorales/lab8_api_ta:latest
                isabellemorales/lab8_api_ta:${{github.sha}}
-
     
   DEPLOY:
     name: Implantando na EC2
