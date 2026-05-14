@@ -69,3 +69,4 @@ jobs:
             sleep 5
             curl -f http://localhost/health || exit 1
             echo "Deploy feito com sucesso"
+# refazendo deploy
